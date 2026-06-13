@@ -1,0 +1,67 @@
+{
+    "id": "4926acad-47cd-43a4-a16d-ee45fa9020cb",
+    "started_at": "2026-06-13T11:42:21.421080",
+    "updated_at": "2026-06-13T11:44:56.479434",
+    "finished_at": "2026-06-13T11:44:56.479434",
+    "n_total_trials": 1,
+    "stats": {
+        "n_completed_trials": 1,
+        "n_errored_trials": 1,
+        "n_running_trials": 0,
+        "n_pending_trials": 0,
+        "n_cancelled_trials": 0,
+        "n_retries": 0,
+        "evals": {
+            "codex__gpt-5.5__adhoc": {
+                "n_trials": 1,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "artifact_quality": 1.0,
+                        "constraint_satisfaction": 1.0,
+                        "functional_correctness": 1.0,
+                        "overall": 1.0,
+                        "robustness": 1.0
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "overall": {
+                        "1.0": [
+                            "meridian-ledger-recon__UQqVcA9"
+                        ]
+                    },
+                    "functional_correctness": {
+                        "1.0": [
+                            "meridian-ledger-recon__UQqVcA9"
+                        ]
+                    },
+                    "constraint_satisfaction": {
+                        "1.0": [
+                            "meridian-ledger-recon__UQqVcA9"
+                        ]
+                    },
+                    "robustness": {
+                        "1.0": [
+                            "meridian-ledger-recon__UQqVcA9"
+                        ]
+                    },
+                    "artifact_quality": {
+                        "1.0": [
+                            "meridian-ledger-recon__UQqVcA9"
+                        ]
+                    }
+                },
+                "exception_stats": {
+                    "NonZeroAgentExitCodeError": [
+                        "meridian-ledger-recon__UQqVcA9"
+                    ]
+                }
+            }
+        },
+        "n_input_tokens": 140846,
+        "n_cache_tokens": 126080,
+        "n_output_tokens": 6426,
+        "cost_usd": 0.32965
+    }
+}

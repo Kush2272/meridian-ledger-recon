@@ -1,0 +1,7 @@
+{
+  "overall": 1.0,
+  "functional_correctness": 1.0,
+  "constraint_satisfaction": 1.0,
+  "robustness": 1.0,
+  "artifact_quality": 1.0
+}

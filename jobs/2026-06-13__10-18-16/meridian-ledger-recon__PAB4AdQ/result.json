@@ -1,0 +1,115 @@
+{
+    "id": "5640258f-db14-4536-a40b-e710bda754b4",
+    "task_name": "meridian-ledger-recon",
+    "trial_name": "meridian-ledger-recon__PAB4AdQ",
+    "trial_uri": "file:///C:/Users/kush/Desktop/INT/jobs/2026-06-13__10-18-16/meridian-ledger-recon__PAB4AdQ",
+    "task_id": {
+        "path": "meridian-ledger-recon"
+    },
+    "source": null,
+    "task_checksum": "bc8acb1578fb683617abd01911b8910670841515fe2b53e4f8318a6198d726ca",
+    "config": {
+        "task": {
+            "path": "meridian-ledger-recon",
+            "git_url": null,
+            "git_commit_id": null,
+            "name": null,
+            "ref": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": null
+        },
+        "trial_name": "meridian-ledger-recon__PAB4AdQ",
+        "trials_dir": "jobs\\2026-06-13__10-18-16",
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "codex",
+            "import_path": null,
+            "model_name": "gpt-5.5",
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "extra_allowed_hosts": [],
+            "kwargs": {},
+            "env": {},
+            "mcp_servers": []
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "env": {},
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "env": {},
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "job_id": "55dc79fe-9666-4eba-9f19-c0a7dd2c2007"
+    },
+    "agent_info": {
+        "name": "codex",
+        "version": "0.139.0",
+        "model_info": {
+            "name": "gpt-5.5",
+            "provider": null
+        }
+    },
+    "agent_result": {
+        "n_input_tokens": 437797,
+        "n_cache_tokens": 411904,
+        "n_output_tokens": 11781,
+        "cost_usd": 0.688847,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "overall": 0.9625,
+            "functional_correctness": 1.0,
+            "constraint_satisfaction": 1.0,
+            "robustness": 1.0,
+            "artifact_quality": 0.75
+        }
+    },
+    "exception_info": null,
+    "started_at": "2026-06-13T04:48:18.855743Z",
+    "finished_at": "2026-06-13T04:52:13.428751Z",
+    "environment_setup": {
+        "started_at": "2026-06-13T04:48:19.224903Z",
+        "finished_at": "2026-06-13T04:48:25.164926Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-06-13T04:48:25.164926Z",
+        "finished_at": "2026-06-13T04:48:47.004921Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-06-13T04:48:47.004921Z",
+        "finished_at": "2026-06-13T04:52:10.525340Z"
+    },
+    "verifier": {
+        "started_at": "2026-06-13T04:52:10.536191Z",
+        "finished_at": "2026-06-13T04:52:11.298016Z"
+    },
+    "step_results": null
+}

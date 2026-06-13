@@ -1,0 +1,68 @@
+{
+    "schema_version": 1,
+    "created_at": "2026-06-13T04:00:01.362715Z",
+    "harbor": {
+        "version": "0.13.2",
+        "is_editable": false
+    },
+    "invocation": [
+        "C:\\Users\\kush\\AppData\\Local\\Programs\\Python\\Python312\\Scripts\\harbor",
+        "run",
+        "-p",
+        ".\\meridian-ledger-recon",
+        "-a",
+        "codex",
+        "-m",
+        "gpt-5.5"
+    ],
+    "n_concurrent_trials": 4,
+    "retry": {
+        "max_retries": 0,
+        "exclude_exceptions": [
+            "RewardFileNotFoundError",
+            "VerifierTimeoutError",
+            "RewardFileEmptyError",
+            "AgentTimeoutError",
+            "VerifierOutputParseError"
+        ],
+        "wait_multiplier": 1.0,
+        "min_wait_sec": 1.0,
+        "max_wait_sec": 60.0
+    },
+    "trials": [
+        {
+            "task": {
+                "name": "meridian-ledger-recon",
+                "type": "local",
+                "digest": "sha256:9f94ee049a45dc7630aeaff5317546c8b92bf76bf76b032e9dcdfb81856b603a",
+                "path": "meridian-ledger-recon"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "name": "codex",
+                "model_name": "gpt-5.5",
+                "skills": [],
+                "extra_allowed_hosts": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "cpu_enforcement_policy": "auto",
+                "memory_enforcement_policy": "auto",
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {},
+                "extra_allowed_hosts": []
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        }
+    ]
+}

@@ -1,0 +1,63 @@
+{
+    "id": "3a15f539-3ec8-4610-b5ce-059fc142f1fd",
+    "started_at": "2026-06-13T11:00:12.759707",
+    "updated_at": "2026-06-13T11:02:26.724255",
+    "finished_at": "2026-06-13T11:02:26.724255",
+    "n_total_trials": 1,
+    "stats": {
+        "n_completed_trials": 1,
+        "n_errored_trials": 0,
+        "n_running_trials": 0,
+        "n_pending_trials": 0,
+        "n_cancelled_trials": 0,
+        "n_retries": 0,
+        "evals": {
+            "codex__gpt-5.5__adhoc": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "artifact_quality": 1.0,
+                        "constraint_satisfaction": 1.0,
+                        "functional_correctness": 1.0,
+                        "overall": 1.0,
+                        "robustness": 1.0
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "overall": {
+                        "1.0": [
+                            "meridian-ledger-recon__VHcFsDs"
+                        ]
+                    },
+                    "functional_correctness": {
+                        "1.0": [
+                            "meridian-ledger-recon__VHcFsDs"
+                        ]
+                    },
+                    "constraint_satisfaction": {
+                        "1.0": [
+                            "meridian-ledger-recon__VHcFsDs"
+                        ]
+                    },
+                    "robustness": {
+                        "1.0": [
+                            "meridian-ledger-recon__VHcFsDs"
+                        ]
+                    },
+                    "artifact_quality": {
+                        "1.0": [
+                            "meridian-ledger-recon__VHcFsDs"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        },
+        "n_input_tokens": 174402,
+        "n_cache_tokens": 154624,
+        "n_output_tokens": 6190,
+        "cost_usd": 0.361902
+    }
+}

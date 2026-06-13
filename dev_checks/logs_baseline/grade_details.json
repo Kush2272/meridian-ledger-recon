@@ -1,0 +1,22 @@
+{
+  "main_snapshot": {
+    "accounts_exact": false,
+    "balance_match_fraction": 0.0,
+    "rejected_exact": false,
+    "meta_keys_correct": 1
+  },
+  "holdout": {
+    "exact": false,
+    "balance_match_fraction": 0.0,
+    "rejected_exact": false
+  },
+  "expected_report": {
+    "duplicate_events_ignored": 120,
+    "rejected_event_ids": "<326 ids>",
+    "accounts_with_corrected_balance": 40,
+    "total_absolute_drift_cents": 12979848
+  },
+  "report": {
+    "error": "report.json missing"
+  }
+}

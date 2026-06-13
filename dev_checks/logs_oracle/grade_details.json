@@ -1,0 +1,25 @@
+{
+  "main_snapshot": {
+    "accounts_exact": true,
+    "balance_match_fraction": 1.0,
+    "rejected_exact": true,
+    "meta_keys_correct": 4
+  },
+  "holdout": {
+    "exact": true,
+    "balance_match_fraction": 1.0,
+    "rejected_exact": true
+  },
+  "expected_report": {
+    "duplicate_events_ignored": 120,
+    "rejected_event_ids": "<326 ids>",
+    "accounts_with_corrected_balance": 40,
+    "total_absolute_drift_cents": 12979848
+  },
+  "report": {
+    "duplicate_events_ignored": true,
+    "accounts_with_corrected_balance": true,
+    "total_absolute_drift_cents": true,
+    "rejected_event_ids": true
+  }
+}

@@ -1,0 +1,67 @@
+{
+    "id": "19456843-78f5-424b-b571-a3a9f82838df",
+    "started_at": "2026-06-13T09:24:45.448565",
+    "updated_at": "2026-06-13T09:25:29.742047",
+    "finished_at": "2026-06-13T09:25:29.742047",
+    "n_total_trials": 1,
+    "stats": {
+        "n_completed_trials": 1,
+        "n_errored_trials": 1,
+        "n_running_trials": 0,
+        "n_pending_trials": 0,
+        "n_cancelled_trials": 0,
+        "n_retries": 0,
+        "evals": {
+            "codex__gpt-5.5-high__adhoc": {
+                "n_trials": 1,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "artifact_quality": 0.0,
+                        "constraint_satisfaction": 0.1511,
+                        "functional_correctness": 0.0,
+                        "overall": 0.0227,
+                        "robustness": 0.0
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "overall": {
+                        "0.0227": [
+                            "meridian-ledger-recon__m9mrEKP"
+                        ]
+                    },
+                    "functional_correctness": {
+                        "0.0": [
+                            "meridian-ledger-recon__m9mrEKP"
+                        ]
+                    },
+                    "constraint_satisfaction": {
+                        "0.1511": [
+                            "meridian-ledger-recon__m9mrEKP"
+                        ]
+                    },
+                    "robustness": {
+                        "0.0": [
+                            "meridian-ledger-recon__m9mrEKP"
+                        ]
+                    },
+                    "artifact_quality": {
+                        "0.0": [
+                            "meridian-ledger-recon__m9mrEKP"
+                        ]
+                    }
+                },
+                "exception_stats": {
+                    "NonZeroAgentExitCodeError": [
+                        "meridian-ledger-recon__m9mrEKP"
+                    ]
+                }
+            }
+        },
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null
+    }
+}

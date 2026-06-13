@@ -1,0 +1,3 @@
+snapshot written to /app/state/ledger.db
+wrote /app/report.json
+oracle: snapshot regenerated and report.json written

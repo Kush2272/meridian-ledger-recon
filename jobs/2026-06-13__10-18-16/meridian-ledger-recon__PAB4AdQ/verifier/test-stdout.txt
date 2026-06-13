@@ -1,0 +1,8 @@
+{
+  "overall": 0.9625,
+  "functional_correctness": 1.0,
+  "constraint_satisfaction": 1.0,
+  "robustness": 1.0,
+  "artifact_quality": 0.75
+}
+solved: False

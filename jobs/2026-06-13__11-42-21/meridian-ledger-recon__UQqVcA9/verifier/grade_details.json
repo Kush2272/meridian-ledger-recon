@@ -1,0 +1,32 @@
+{
+  "main_snapshot": {
+    "accounts_exact": true,
+    "balance_match_fraction": 1.0,
+    "schema_exact": true,
+    "rejected_exact": true,
+    "meta_keys_correct": 4,
+    "meta_keys_exact": true
+  },
+  "holdout": {
+    "exact": true,
+    "balance_match_fraction": 1.0,
+    "rejected_exact": true,
+    "schema_exact": true
+  },
+  "expected_report": {
+    "duplicate_events_ignored": 120,
+    "rejected_event_ids": "<413 ids>",
+    "accounts_with_corrected_balance": 40,
+    "total_absolute_drift_cents": 23760143,
+    "captured_hold_ids": "<0 ids>",
+    "open_hold_ids": "<0 ids>"
+  },
+  "report": {
+    "duplicate_events_ignored": true,
+    "accounts_with_corrected_balance": true,
+    "total_absolute_drift_cents": true,
+    "rejected_event_ids": true,
+    "captured_hold_ids": true,
+    "open_hold_ids": true
+  }
+}

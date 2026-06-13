@@ -1,0 +1,70 @@
+# Meridian Ledger Reconciliation
+
+You are the on-call engineer for Meridian, a small payment platform. Finance has frozen
+month-end close: the account snapshot produced by our rebuilder does not reconcile, and
+several customer balances are visibly wrong (a few are even negative, which should be
+impossible under the current ledger rules).
+
+The gateway event log is fine - it is the authoritative record. The problem is somewhere
+in how the snapshot is derived from it. Your job is to bring the snapshot pipeline back
+into compliance with the written specification and produce a corrected snapshot plus a
+reconciliation report.
+
+## What is in the environment
+
+| Path | What it is |
+|------|------------|
+| `/app/docs/SPEC.md` | **MER-SPEC-2.3**, the normative specification for replaying the event log and materializing the snapshot. This document is ground truth. |
+| `/app/data/events.ndjson` | The published gateway event log (NDJSON, one event per line). Treat it as read-only, authoritative input. |
+| `/app/app/ledger.py` | The currently shipped snapshot rebuilder. It runs without errors - but its output does not reconcile. |
+| `/app/state/ledger.db` | The current (incorrect) snapshot, produced by the shipped rebuilder. You will regenerate this file. |
+| `/app/state/baseline_stale.db` | A read-only copy of the incorrect snapshot, kept for reconciliation. **Do not modify or delete it.** |
+
+## Your task
+
+1. **Audit `app/ledger.py` against `docs/SPEC.md`.** The implementation deviates from the
+   specification in more than one place. Find **every** deviation. The spec is complete
+   and unambiguous; wherever code and spec disagree, the spec wins.
+
+2. **Fix the rebuilder in place** (`/app/app/ledger.py`). Requirements:
+   - It must keep the exact command-line contract from SPEC Section 6:
+     `python3 app/ledger.py rebuild --events <path> --db <path>`.
+   - It must be a *general* implementation of the spec: it will be evaluated on other
+     spec-conforming event logs, not only the one in `/app/data`. Hardcoding results,
+     special-casing this particular log, or editing the database directly instead of
+     fixing the code will not pass.
+   - Monetary arithmetic must satisfy SPEC Section 3 R3 (exact integer arithmetic).
+   - Use only the Python 3.11 standard library (the environment has no other packages
+     and no network access).
+
+3. **Regenerate the snapshot** at `/app/state/ledger.db` by running your fixed rebuilder
+   over `/app/data/events.ndjson`.
+
+4. **Write a reconciliation report** at `/app/report.json` - a single JSON object with
+   exactly these six fields:
+
+   | Field | Type | Definition |
+   |-------|------|------------|
+   | `duplicate_events_ignored` | int | Number of retransmitted lines ignored during the corrected replay (SPEC R2), i.e. the corrected snapshot's `duplicates_ignored` meta value. |
+   | `rejected_event_ids` | array of strings | The `event_id`s of all events rejected during the corrected replay, sorted ascending. |
+   | `accounts_with_corrected_balance` | int | Number of account ids in the union of corrected and stale snapshots whose corrected `balance_cents` differs from `/app/state/baseline_stale.db`. An account missing from either snapshot counts as different. |
+   | `total_absolute_drift_cents` | int | Sum over the union of corrected and stale account ids of the absolute difference between the corrected balance and the stale baseline balance. For this drift sum only, treat a missing balance as 0. |
+   | `captured_hold_ids` | array of strings | The `hold_id`s of all successfully captured holds during the corrected replay, sorted ascending. Rejected captures and retransmissions are excluded. |
+   | `open_hold_ids` | array of strings | The `hold_id`s still active after the corrected replay completes, sorted ascending. |
+
+## Success criteria
+
+You are done when **all** of the following hold:
+
+- `/app/state/ledger.db` is exactly the snapshot a spec-conforming rebuilder produces for
+  `/app/data/events.ndjson`: schema per SPEC Section 5, exact balances and currencies for
+  every account, exact `rejected_events` contents, and all four `meta` counters correct.
+- `/app/app/ledger.py` is a general, spec-conforming rebuilder: when invoked via the SPEC
+  Section 6 command line on a *different* spec-conforming event log, it reproduces that
+  log's correct snapshot exactly. (The verifier does exactly this with a held-out log.)
+- `/app/report.json` exists with the six fields above, exactly correct.
+- `/app/state/baseline_stale.db` is untouched.
+
+Grading is programmatic and partial credit is limited; near-miss balances, a near-miss
+rejected set, or an off-by-a-few-cents report score far below the passing threshold.
+Verify your own work before finishing - you have everything needed to check every number.
